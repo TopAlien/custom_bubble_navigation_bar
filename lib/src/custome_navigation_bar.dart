@@ -326,8 +326,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
 
   @override
   Widget build(BuildContext context) {
-    final double additionalBottomPadding =
-        math.max(MediaQuery.of(context).padding.bottom, 0.0) + 16.0;
+    double additionalBottomPadding =
+        math.max(MediaQuery.of(context).padding.bottom, 0.0);
+
+    if(additionalBottomPadding == 0) {
+      additionalBottomPadding += 16.0;
+    }
 
     final height = DefaultCustomNavigationBarStyle.defaultHeight +
         (widget.isFloating ? 0.0 : additionalBottomPadding);
